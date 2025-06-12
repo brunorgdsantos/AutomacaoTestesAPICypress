@@ -1,0 +1,16 @@
+# Meu Projeto com Testes Cypress
+
+Este projeto utiliza Cypress para testes de API na página https://serverest.dev/#/Produtos/post_produtos.
+
+## Como Executar os Testes
+
+Para executar os testes do Cypress, você pode usar os seguintes comandos:
+
+### 1. Testes do Cypress
+
+Para abrir a interface gráfica do Cypress ou executar os testes no modo modo headless (via linha de comando), use:
+
+```bash
+npm run cy:open
+
+npm run cy:run
