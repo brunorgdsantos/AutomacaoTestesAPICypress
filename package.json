@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/brunorgdsantos/AutomacaoTestesAPICypress/issues"
   },
-  "homepage": "https://github.com/brunorgdsantos/AutomacaoTestesAPICypress#readme"
+  "homepage": "https://github.com/brunorgdsantos/AutomacaoTestesAPICypress#readme",
+  "dependencies": {
+    "cypress-plugin-api": "^2.11.2"
+  }
 }
