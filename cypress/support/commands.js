@@ -98,3 +98,15 @@ Cypress.Commands.add('deletar_usuario', () => {
         expect(response.body.message).to.eq("Registro excluído com sucesso");
     });
 })
+
+Cypress.Commands.add('cria_produto', (prod) => {
+    cy.api({
+        method: "POST",
+        url: "https://serverest.dev/produtos",
+        body: prod,
+        headers: {
+            'Authorization': Cypress.env('token')
+        }
+    })
+    .then((response) => { return response });
+})

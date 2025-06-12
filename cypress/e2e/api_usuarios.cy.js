@@ -1,4 +1,4 @@
-describe("API Tests", () => {
+describe("API Tests Users", () => {
     const randomEmail = `teste${Cypress._.random(1000, 9999)}@qa.com.br`;
     it("Criar Usuario", () => {
         cy.fixture('usuario').then(function(usuario){
