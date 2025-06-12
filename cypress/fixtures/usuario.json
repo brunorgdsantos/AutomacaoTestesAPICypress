@@ -1,0 +1,8 @@
+{
+    "cria_usuario": {
+        "nome": "Teste QA",
+        "email": "teste2@gmail.com",
+        "password": "teste",
+        "administrador": "true"
+    }
+}

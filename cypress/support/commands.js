@@ -1,15 +1,10 @@
 const randomEmail = `teste${Cypress._.random(1000, 9999)}@qa.com.br`;
 
-Cypress.Commands.add('cria_user', () => {
+Cypress.Commands.add('cria_user', (user) => {
     cy.api({
         method: "POST",
         url: "https://serverest.dev/usuarios",
-        body: {
-            "nome": "Teste QA",
-            "email": randomEmail,
-            "password": "teste",
-            "administrador": "true"
-        }
+        body: user
     })
     .then((response) => {
         expect(response.status).to.eq(201);

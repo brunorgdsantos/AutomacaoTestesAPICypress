@@ -1,7 +1,10 @@
 describe("API Tests", () => {
     const randomEmail = `teste${Cypress._.random(1000, 9999)}@qa.com.br`;
-    it("Criar Usuario", () => {
-        cy.cria_user();
+    it.only("Criar Usuario", () => {
+        cy.fixture('usuario').then(function(usuario){
+            const user = usuario.cria_usuario
+            cy.cria_user(user);
+        })
     });
 
     it("Busca Usuario Lista", () => {
