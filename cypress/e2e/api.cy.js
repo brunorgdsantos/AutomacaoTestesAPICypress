@@ -46,6 +46,17 @@ describe("API Tests", () => {
         cy.atualizar_usuario();
     });
 
+    it.only("Atualizar Usuario - Outra Forma", () => {
+        cy.fixture('usuario').then(function(usuario){
+            const user = usuario.atualizar_usuario
+            cy.atualizar_usuario_outra_forma(user);
+        })
+        .then((response) => {
+            expect(response.status).to.eq(200);
+            expect(response.body.message).to.eq("Registro alterado com sucesso");
+        });
+    });
+
     it("deletar_usuario", () => {
         cy.deletar_usuario();
     });

@@ -67,6 +67,15 @@ Cypress.Commands.add('atualizar_usuario', () => {
     });
 })
 
+Cypress.Commands.add('atualizar_usuario_outra_forma', (user) => {
+    cy.api({
+        method: "PUT",
+        url: `https://serverest.dev/usuarios/${Cypress.env('id')}`,
+        body: user
+    })
+    .then((response) => { return response });
+})
+
 Cypress.Commands.add('deletar_usuario', () => {
     cy.api({
         method: "DELETE",

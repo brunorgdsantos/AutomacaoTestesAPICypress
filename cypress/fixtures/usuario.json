@@ -1,7 +1,13 @@
 {
     "cria_usuario": {
         "nome": "Teste QA",
-        "email": "teste9@gmail.com",
+        "email": "teste11@gmail.com",
+        "password": "teste",
+        "administrador": "true"
+    },
+    "atualizar_usuario": {
+        "nome": "Teste QA Atualização",
+        "email": "teste12@gmail.com",
         "password": "teste",
         "administrador": "true"
     }
