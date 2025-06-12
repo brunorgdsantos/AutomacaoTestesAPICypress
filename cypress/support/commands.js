@@ -42,6 +42,14 @@ Cypress.Commands.add('busca_usuario_id', () => {
     });
 })
 
+Cypress.Commands.add('busca_usuario_outra_forma', (id) => {
+    cy.api({
+        method: "GET",
+        url: `https://serverest.dev/usuarios/`+id,
+    })
+    .then((response) => { return response });
+})
+
 Cypress.Commands.add('atualizar_usuario', () => {
     cy.api({
         method: "PUT",

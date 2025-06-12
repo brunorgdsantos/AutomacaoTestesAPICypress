@@ -26,6 +26,22 @@ describe("API Tests", () => {
         cy.busca_usuario_id();
     });
 
+    it.only("Busca Usuario Lista - Outra Forma", () => {
+        const id = '';
+        cy.busca_usuario_outra_forma(id)
+        .then((response) => {
+            expect(response.status).to.eq(200);
+        });
+    });
+
+    it.only("Busca Usuario por ID - Outra Forma", () => {
+        const id = Cypress.env('id');
+        cy.busca_usuario_outra_forma(id)
+        .then((response) => {
+            expect(response.status).to.eq(200);
+        });
+    });
+
     it("Atualizar Usuario", () => {
         cy.atualizar_usuario();
     });
