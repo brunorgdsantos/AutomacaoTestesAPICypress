@@ -1,5 +1,7 @@
 describe("API Tests Create Products", () => {
 
+    context("CADASTRO PRODUTOS", () => {}); //DIVIDE OS TESTES POR CATEGORIAS
+
     before(() => {
         cy.fixture('usuario').then(function(usuario){
             const email = usuario.cria_usuario.email
