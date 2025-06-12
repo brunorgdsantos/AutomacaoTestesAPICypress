@@ -110,3 +110,11 @@ Cypress.Commands.add('cria_produto', (prod) => {
     })
     .then((response) => { return response });
 })
+
+Cypress.Commands.add('busca_produto', (id) => {
+    cy.api({
+        method: "GET",
+        url: `https://serverest.dev/produtos/`+id,
+    })
+    .then((response) => { return response });
+})

@@ -25,5 +25,20 @@ describe("API Tests Create Products", () => {
         })
     });
 
+    it("Listar Produtos", () => {
+        const id = '';
+        cy.busca_produto(id)
+        .then((response) => {
+            expect(response.status).to.eq(200);
+        });
+    });
+    
+    it("Busca Produtos por ID", () => {
+        const id = Cypress.env('id_produto');
+        cy.busca_produto(id)
+        .then((response) => {
+            expect(response.status).to.eq(200);
+        });
+    });
     
 })
