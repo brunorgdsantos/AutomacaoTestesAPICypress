@@ -14,3 +14,13 @@ Para abrir a interface gráfica do Cypress ou executar os testes no modo modo he
 npm run cy:open
 
 npm run cy:run
+
+## Relatorio de Execução de Testes Automatizados
+
+No terminal digite o sequinte comando:
+
+npm i -D cypress-mochawesome-reporter
+
+npm i -D cypress-multi-reporters
+
+npm i -D mocha-junit-reporter

@@ -20,5 +20,10 @@
   "homepage": "https://github.com/brunorgdsantos/AutomacaoTestesAPICypress#readme",
   "dependencies": {
     "cypress-plugin-api": "^2.11.2"
+  },
+  "devDependencies": {
+    "cypress-mochawesome-reporter": "^3.8.2",
+    "cypress-multi-reporters": "^2.0.5",
+    "mocha-junit-reporter": "^2.2.1"
   }
 }
