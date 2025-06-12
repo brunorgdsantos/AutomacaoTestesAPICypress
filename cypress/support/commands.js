@@ -13,6 +13,15 @@ Cypress.Commands.add('cria_user', (user) => {
     });
 })
 
+Cypress.Commands.add('cria_user_outra_forma', (user) => {
+    cy.api({
+        method: "POST",
+        url: "https://serverest.dev/usuarios",
+        body: user
+    })
+    .then((response) => { return response });
+})
+
 Cypress.Commands.add('busca_usuario_lista', () => {
     cy.api({
         method: "GET",

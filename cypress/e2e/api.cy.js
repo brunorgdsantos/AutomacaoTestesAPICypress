@@ -1,10 +1,21 @@
 describe("API Tests", () => {
     const randomEmail = `teste${Cypress._.random(1000, 9999)}@qa.com.br`;
-    it.only("Criar Usuario", () => {
+    it("Criar Usuario", () => {
         cy.fixture('usuario').then(function(usuario){
             const user = usuario.cria_usuario
             cy.cria_user(user);
         })
+    });
+
+    it.only("Criar Usuario - Outra Forma", () => {
+        cy.fixture('usuario').then(function(usuario){
+            const user = usuario.cria_usuario
+            cy.cria_user_outra_forma(user);
+        }).then((response) => {
+            expect(response.status).to.eq(201);
+            expect(response.body.message).to.eq("Cadastro realizado com sucesso");
+            Cypress.env('id', response.body._id);
+        });
     });
 
     it("Busca Usuario Lista", () => {
