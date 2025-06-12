@@ -1,25 +1,67 @@
-// ***********************************************
-// This example commands.js shows you how to
-// create various custom commands and overwrite
-// existing commands.
-//
-// For more comprehensive examples of custom
-// commands please read more here:
-// https://on.cypress.io/custom-commands
-// ***********************************************
-//
-//
-// -- This is a parent command --
-// Cypress.Commands.add('login', (email, password) => { ... })
-//
-//
-// -- This is a child command --
-// Cypress.Commands.add('drag', { prevSubject: 'element'}, (subject, options) => { ... })
-//
-//
-// -- This is a dual command --
-// Cypress.Commands.add('dismiss', { prevSubject: 'optional'}, (subject, options) => { ... })
-//
-//
-// -- This will overwrite an existing command --
-// Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+const randomEmail = `teste${Cypress._.random(1000, 9999)}@qa.com.br`;
+
+Cypress.Commands.add('cria_user', () => {
+    cy.api({
+        method: "POST",
+        url: "https://serverest.dev/usuarios",
+        body: {
+            "nome": "Teste QA",
+            "email": randomEmail,
+            "password": "teste",
+            "administrador": "true"
+        }
+    })
+    .then((response) => {
+        expect(response.status).to.eq(201);
+        expect(response.body.message).to.eq("Cadastro realizado com sucesso");
+        Cypress.env('id', response.body._id);
+    });
+})
+
+Cypress.Commands.add('busca_usuario_lista', () => {
+    cy.api({
+        method: "GET",
+        url: "https://serverest.dev/usuarios",
+    })
+    .then((response) => {
+        expect(response.status).to.eq(200);
+    });
+})
+
+Cypress.Commands.add('busca_usuario_id', () => {
+    cy.api({
+        method: "GET",
+        url: `https://serverest.dev/usuarios/${Cypress.env('id')}`,
+    })
+    .then((response) => {
+        expect(response.status).to.eq(200);
+    });
+})
+
+Cypress.Commands.add('atualizar_usuario', () => {
+    cy.api({
+        method: "PUT",
+        url: `https://serverest.dev/usuarios/${Cypress.env('id')}`,
+        body: {
+            "nome": "Teste QA Atualização",
+            "email": randomEmail,
+            "password": "teste",
+            "administrador": "true"
+        }
+    })
+    .then((response) => {
+        expect(response.status).to.eq(200);
+        expect(response.body.message).to.eq("Registro alterado com sucesso");
+    });
+})
+
+Cypress.Commands.add('deletar_usuario', () => {
+    cy.api({
+        method: "DELETE",
+        url: `https://serverest.dev/usuarios/${Cypress.env('id')}`,
+    })
+    .then((response) => {
+        expect(response.status).to.eq(200);
+        expect(response.body.message).to.eq("Registro excluído com sucesso");
+    });
+})
