@@ -1,7 +1,7 @@
 describe("API Tests", () => {
     const randomEmail = `teste${Cypress._.random(1000, 9999)}@qa.com.br`;
     it("Criar Usuario", () => {
-        cy.request({
+        cy.api({
             method: "POST",
             url: "https://serverest.dev/usuarios",
             body: {
@@ -19,7 +19,7 @@ describe("API Tests", () => {
     });
 
     it("Busca Usuario Lista", () => {
-        cy.request({
+        cy.api({
             method: "GET",
             url: "https://serverest.dev/usuarios",
         })
@@ -29,7 +29,7 @@ describe("API Tests", () => {
     });
 
     it("Busca Usuario por ID", () => {
-        cy.request({
+        cy.api({
             method: "GET",
             url: `https://serverest.dev/usuarios/${Cypress.env('id')}`,
         })
@@ -39,7 +39,7 @@ describe("API Tests", () => {
     });
 
     it("Atualizar Usuario", () => {
-        cy.request({
+        cy.api({
             method: "PUT",
             url: `https://serverest.dev/usuarios/${Cypress.env('id')}`,
             body: {
@@ -56,7 +56,7 @@ describe("API Tests", () => {
     });
 
     it("Deletar Usuario", () => {
-        cy.request({
+        cy.api({
             method: "DELETE",
             url: `https://serverest.dev/usuarios/${Cypress.env('id')}`,
         })
