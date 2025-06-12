@@ -76,6 +76,18 @@ Cypress.Commands.add('atualizar_usuario_outra_forma', (user) => {
     .then((response) => { return response });
 })
 
+Cypress.Commands.add('login', (email, senha) => {
+    cy.api({
+        method: "POST",
+        url: "https://serverest.dev/login",
+        body: {
+            email: email,
+            password: senha
+        }
+    })
+    .then((response) => { return response });
+})
+
 Cypress.Commands.add('deletar_usuario', () => {
     cy.api({
         method: "DELETE",
